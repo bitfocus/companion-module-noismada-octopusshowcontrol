@@ -2,7 +2,7 @@
   "name": "companion-module-octopus",
   "version": "0.0.1",
   "description": "Octopus Listener plugin for Companion",
-  "main": "octopus.js",
+  "main": "octopusListener.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
