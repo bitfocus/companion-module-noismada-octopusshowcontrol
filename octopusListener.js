@@ -77,19 +77,6 @@ instance.prototype.actions = function (system) {
     var self = this;
 
     self.system.emit('instance_actions', self.id, {
-        'slide': {
-            label: 'Goto slide (nr)',
-            options: [
-                {
-                    type: 'textinput',
-                    label: 'Slide Nr.',
-                    id: 'slide',
-                    default: 1,
-                    regex: self.REGEX_NUMBER
-                }
-            ]
-        },
-
         'custom': {
             label: 'custom command',
             options: [
@@ -103,11 +90,43 @@ instance.prototype.actions = function (system) {
             ]
         },
 
-        'next': { label: 'next slide' },
-        'previous': { label: 'previous slide' },
-        'play': { label: 'start presentation' },
-        'first': { label: 'first slide' },
-        'exit': { label: 'exit presentation' }
+        'pSlide': {
+            label: 'PPT goto slide (nr)',
+            options: [
+                {
+                    type: 'textinput',
+                    label: 'Slide Nr.',
+                    id: 'pSlide',
+                    default: 1,
+                    regex: self.REGEX_NUMBER
+                }
+            ]
+        },
+
+        'pNext': { label: 'Next slide' },
+        'pPrevious': { label: 'Previous slide' },
+        'pPlay': { label: 'Start presentation' },
+        'pFirst': { label: 'First slide' },
+        'pExit': { label: 'Exit presentation' },
+
+        'kSlide': {
+            label: 'Keynote goto slide (nr)',
+            options: [
+                {
+                    type: 'textinput',
+                    label: 'Slide Nr.',
+                    id: 'kSlide',
+                    default: 1,
+                    regex: self.REGEX_NUMBER
+                }
+            ]
+        },
+
+        'kNext': { label: 'Next slide' },
+        'kPrevious': { label: 'Previous slide' },
+        'kPlay': { label: 'Start presentation' },
+        'kFirst': { label: 'First slide' },
+        'kExit': { label: 'Exit presentation' }
     });
 };
 
@@ -121,31 +140,55 @@ instance.prototype.action = function (action) {
 
     switch (action.action) {
 
-        case 'slide':
-            cmd = 'P<TYPE>G*' + opt.slide + '<ENDOFTRANS>';
-            break;
-
         case 'custom':
             cmd = opt.custom;
             break;
 
-        case 'next':
+        case 'pSlide':
+            cmd = 'P<TYPE>G*' + opt.slide + '<ENDOFTRANS>';
+            break;
+        
+        case 'pNext':
             cmd = 'P<TYPE>N<ENDOFTRANS>';
             break;
 
-        case 'previous':
+        case 'pPrevious':
             cmd = 'P<TYPE>B<ENDOFTRANS>';
             break;
 
-        case 'play':
+        case 'pPlay':
             cmd = 'P<TYPE>P<ENDOFTRANS>';
             break;
 
-        case 'first':
+        case 'pFirst':
             cmd = 'P<TYPE>G*1<ENDOFTRANS>';
             break;
 
-        case 'exit':
+        case 'pExit':
+            cmd = 'P<TYPE>S<ENDOFTRANS>';
+            break;
+
+        case 'kSlide':
+            cmd = 'K<TYPE>G*' + opt.slide + '<ENDOFTRANS>';
+            break;
+
+        case 'kNext':
+            cmd = 'P<TYPE>N<ENDOFTRANS>';
+            break;
+
+        case 'kPrevious':
+            cmd = 'P<TYPE>B<ENDOFTRANS>';
+            break;
+
+        case 'kPlay':
+            cmd = 'P<TYPE>P<ENDOFTRANS>';
+            break;
+
+        case 'kFirst':
+            cmd = 'P<TYPE>G*1<ENDOFTRANS>';
+            break;
+
+        case 'kExit':
             cmd = 'P<TYPE>S<ENDOFTRANS>';
             break;
 
@@ -164,8 +207,8 @@ instance.prototype.action = function (action) {
 };
 
 instance.module_info = {
-    label: 'Octopus Listener PPT',
-    id: 'PPT',
+    label: 'Octopus Listener',
+    id: 'octopusListener',
     version: '0.0.1'
 };
 
