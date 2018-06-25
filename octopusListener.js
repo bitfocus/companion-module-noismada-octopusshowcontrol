@@ -84,8 +84,7 @@ instance.prototype.actions = function (system) {
                     type: 'textinput',
                     label: 'Custom command',
                     id: 'custom',
-                    default: 1,
-                    regex: self.REGEX_NUMBER
+                    default: 1
                 }
             ]
         },
@@ -103,11 +102,11 @@ instance.prototype.actions = function (system) {
             ]
         },
 
-        'pNext': { label: 'Next slide' },
-        'pPrevious': { label: 'Previous slide' },
-        'pPlay': { label: 'Start presentation' },
-        'pFirst': { label: 'First slide' },
-        'pExit': { label: 'Exit presentation' },
+        'pNext': { label: 'PPT Next slide' },
+        'pPrevious': { label: 'PPT Previous slide' },
+        'pPlay': { label: 'PPT Start presentation' },
+        'pFirst': { label: 'PPT First slide' },
+        'pExit': { label: 'PPT Exit presentation' },
 
         'kSlide': {
             label: 'Keynote goto slide (nr)',
@@ -122,11 +121,11 @@ instance.prototype.actions = function (system) {
             ]
         },
 
-        'kNext': { label: 'Next slide' },
-        'kPrevious': { label: 'Previous slide' },
-        'kPlay': { label: 'Start presentation' },
-        'kFirst': { label: 'First slide' },
-        'kExit': { label: 'Exit presentation' }
+        'kNext': { label: 'Keynote Next slide' },
+        'kPrevious': { label: 'Keynote Previous slide' },
+        'kPlay': { label: 'Keynote Start presentation' },
+        'kFirst': { label: 'Keynote First slide' },
+        'kExit': { label: 'Keynote Exit presentation' }
     });
 };
 
@@ -173,23 +172,23 @@ instance.prototype.action = function (action) {
             break;
 
         case 'kNext':
-            cmd = 'P<TYPE>N<ENDOFTRANS>';
+            cmd = 'K<TYPE>N<ENDOFTRANS>';
             break;
 
         case 'kPrevious':
-            cmd = 'P<TYPE>B<ENDOFTRANS>';
+            cmd = 'K<TYPE>B<ENDOFTRANS>';
             break;
 
         case 'kPlay':
-            cmd = 'P<TYPE>P<ENDOFTRANS>';
+            cmd = 'K<TYPE>P<ENDOFTRANS>';
             break;
 
         case 'kFirst':
-            cmd = 'P<TYPE>G*1<ENDOFTRANS>';
+            cmd = 'K<TYPE>G*1<ENDOFTRANS>';
             break;
 
         case 'kExit':
-            cmd = 'P<TYPE>S<ENDOFTRANS>';
+            cmd = 'K<TYPE>S<ENDOFTRANS>';
             break;
 
     }
