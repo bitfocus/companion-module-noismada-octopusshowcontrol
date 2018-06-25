@@ -84,8 +84,7 @@ instance.prototype.actions = function (system) {
                     type: 'textinput',
                     label: 'Custom command',
                     id: 'custom',
-                    default: 1,
-                    regex: self.REGEX_NUMBER
+                    default: 1
                 }
             ]
         },
