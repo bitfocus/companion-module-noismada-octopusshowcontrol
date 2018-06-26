@@ -196,7 +196,7 @@ instance.prototype.action = function (action) {
             break;
 
         case 'GKS':
-            cmd = 'GKS<TYPE>None*' + opt.GKS + '<ENDOFTRANS>';
+            cmd = 'GKS<TYPE>'+ opt.GKS_Mod +'*' + opt.GKS + '<ENDOFTRANS>';
             break;
 
         case 'pSlide':
