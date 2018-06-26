@@ -73,18 +73,70 @@ instance.prototype.destroy = function () {
     debug("destroy", self.id);
 };
 
+instance.prototype.CHOICES_KEYS = [
+    { label: 'Enter', id: 'Enter' },
+    { label: 'Space', id: 'Space' },
+    { label: 'Arrow up', id: 'Up Arrow' },
+    { label: 'Arrow Down', id: 'Down Arrow' },
+    { label: 'Arrow Left', id: 'Left Arrow' },
+    { label: 'Arrow Right', id: 'Right Arrow' },
+    { label: 'Delete', id: 'Delete' },
+    { label: 'Return', id: 'Return' },
+    { label: 'Esc', id: 'Esc' },
+    { label: 'Tab', id: 'Tab' },
+    { label: 'Page Down', id: 'Page Down' },
+    { label: 'Page Up', id: 'Page Up' },
+    { label: 'End', id: 'End' },
+    { label: 'Home', id: 'Home' },
+    { label: '1', id: '1' },
+    { label: '2', id: '2' },
+    { label: '3', id: '3' },
+    { label: '4', id: '4' },
+    { label: '5', id: '5' },
+    { label: '6', id: '6' },
+    { label: '7', id: '7' },
+    { label: '8', id: '8' },
+    { label: '9', id: '9' },
+    { label: '0', id: '0' }
+];
+instance.prototype.CHOICES_KEYSModifier = [
+    { label: 'None', id: 'Enter' },
+    { label: 'Option/Alt', id: 'Option/Alt' },
+    { label: 'Control', id: 'Control' },
+    { label: 'Shift', id: 'Shift' }
+];
+
 instance.prototype.actions = function (system) {
     var self = this;
 
     self.system.emit('instance_actions', self.id, {
         'custom': {
-            label: 'custom command',
+            label: 'Custom command',
             options: [
                 {
                     type: 'textinput',
                     label: 'Custom command',
                     id: 'custom',
                     default: 1
+                }
+            ]
+        },
+        'GKS': {
+            label: 'General Keystroke',
+            options: [
+                {
+                    type: 'dropdown',
+                    label: 'Modifier',
+                    id: 'GKS_Mod',
+                    default: 'None',
+                    choices: self.CHOICES_KEYSModifier
+                },
+                {
+                    type: 'dropdown',
+                    label: 'Key',
+                    id: 'GKS',
+                    default: 'Space',
+                    choices: self.CHOICES_KEYS
                 }
             ]
         },
@@ -141,6 +193,10 @@ instance.prototype.action = function (action) {
 
         case 'custom':
             cmd = opt.custom;
+            break;
+
+        case 'GKS':
+            cmd = 'GKS<TYPE>None*' + opt.GKS + '<ENDOFTRANS>';
             break;
 
         case 'pSlide':
@@ -208,7 +264,7 @@ instance.prototype.action = function (action) {
 instance.module_info = {
     label: 'Octopus Listener',
     id: 'octopusListener',
-    version: '0.0.1'
+    version: '0.0.2'
 };
 
 instance_skel.extendedBy(instance);
