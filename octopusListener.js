@@ -52,14 +52,22 @@ instance.prototype.updateConfig = function (config) {
 // Return config fields for web config
 instance.prototype.config_fields = function () {
     var self = this;
-    return [
-        {
+    return [{
+					type: 'text',
+					id: 'info',
+					width: 12,
+					label: 'Information',
+					value: 'This module is for the Octopus Listener from <a href="http://noismada.com" target="_new">noismada.com</a>.'
+
+
+					},
+					{
             type: 'textinput',
             id: 'host',
             label: 'Target IP',
             width: 6,
             regex: self.REGEX_IP
-        }
+        	}
     ]
 };
 
@@ -98,6 +106,7 @@ instance.prototype.CHOICES_KEYS = [
     { label: '8', id: '8' },
     { label: '9', id: '9' },
     { label: '0', id: '0' }
+
 ];
 instance.prototype.CHOICES_KEYSModifier = [
     { label: 'None', id: 'Enter' },
@@ -118,6 +127,18 @@ instance.prototype.actions = function (system) {
                     label: 'Custom command',
                     id: 'custom',
                     default: 1
+                }
+            ]
+        },
+				'customkey': {
+            label: 'Custom keystroke',
+            options: [
+
+								{
+                    type: 'textinput',
+                    label: 'Custom Keystroke',
+                    id: 'cust_GKS',
+                    default: 'n'
                 }
             ]
         },
@@ -192,17 +213,23 @@ instance.prototype.action = function (action) {
     switch (action.action) {
 
         case 'custom':
-            cmd = opt.custom;
+            cmd = opt.custom ;
             break;
+
+				case 'customkey':
+            cmd = 'GKS<TYPE>'+ 'none*' + opt.cust_GKS + '<ENDOFTRANS>';
+						break;
 
         case 'GKS':
             cmd = 'GKS<TYPE>'+ opt.GKS_Mod +'*' + opt.GKS + '<ENDOFTRANS>';
             break;
 
+
+
         case 'pSlide':
             cmd = 'P<TYPE>G*' + opt.slide + '<ENDOFTRANS>';
             break;
-        
+
         case 'pNext':
             cmd = 'P<TYPE>N<ENDOFTRANS>';
             break;
