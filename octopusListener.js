@@ -25,7 +25,11 @@ instance.prototype.init = function () {
 
 			self.tcp.on('status_change', function (status, message) {
 				self.status(status, message);
-				});
+			});
+
+			self.tcp.on('error', function () {
+				// Ignore
+			});
 		}
 };
 
