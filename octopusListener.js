@@ -136,9 +136,10 @@ instance.prototype.actions = function (system) {
 
 								{
                     type: 'textinput',
-                    label: 'Custom Keystroke',
+                    label: 'Key to send',
                     id: 'cust_GKS',
-                    default: 'n'
+                    default: 'n',
+										regex: '/^.$/'
                 }
             ]
         },
