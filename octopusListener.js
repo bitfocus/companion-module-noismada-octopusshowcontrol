@@ -224,7 +224,7 @@ instance.prototype.action = function (action) {
 			break;
 
 			case 'pSlide':
-				cmd = 'P<TYPE>G*' + opt.slide + '<ENDOFTRANS>';
+				cmd = 'P<TYPE>G*' + opt.pSlide + '<ENDOFTRANS>';
 			break;
 
 			case 'pNext':
@@ -248,7 +248,7 @@ instance.prototype.action = function (action) {
 			break;
 
 			case 'kSlide':
-				cmd = 'K<TYPE>G*' + opt.slide + '<ENDOFTRANS>';
+				cmd = 'K<TYPE>G*' + opt.kSlide + '<ENDOFTRANS>';
 			break;
 
 			case 'kNext':
