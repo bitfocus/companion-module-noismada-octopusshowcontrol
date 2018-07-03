@@ -48,6 +48,10 @@ instance.prototype.updateConfig = function (config) {
 			self.tcp.on('status_change', function (status, message) {
 				self.status(status, message);
 			});
+
+			self.tcp.on('error', function (message) {
+				// ignore for now
+			});
 		}
 };
 
