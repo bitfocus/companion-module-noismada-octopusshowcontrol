@@ -63,7 +63,7 @@ instance.prototype.config_fields = function () {
 			id: 'info',
 			width: 12,
 			label: 'Information',
-			value: 'This module is for the Octopus Listener from <a href="http://noismada.com" target="_new">noismada.com</a>.'
+			value: 'This module is for the Octopus Listener from <a href="http://noismada.com" target="_new">noismada.com</a>. When using a custom command use the following syntax: GKS<TYPE>...*...<ENDOFTRANS> Where the first three points are modifier (use None if no modifier) and second three points are for the key'
 			},
 			{
 			type: 'textinput',
@@ -135,11 +135,11 @@ instance.prototype.actions = function (system) {
 				]
 			},
 				'customkey': {
-					label: 'Custom keystroke',
+					label: 'Hot(singel)key',
 					options: [
 						{
 							type: 'textinput',
-							label: 'Key to send',
+							label: 'Single key to send',
 							id: 'cust_GKS',
 							default: 'n',
 							regex: '/^.$/'
