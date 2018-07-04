@@ -135,7 +135,7 @@ instance.prototype.actions = function (system) {
 				]
 			},
 				'customkey': {
-					label: 'Hot(singel)key',
+					label: 'Hot(single)key',
 					options: [
 						{
 							type: 'textinput',
