@@ -63,7 +63,7 @@ instance.prototype.config_fields = function () {
 			id: 'info',
 			width: 12,
 			label: 'Information',
-			value: 'This module is for the Octopus Listener from <a href="http://noismada.com" target="_new">noismada.com</a>. When using a custom command use the following syntax: GKS<TYPE>...*...<ENDOFTRANS> Where the first three points are modifier (use None if no modifier) and second three points are for the key'
+			value: 'This module is for the Octopus Listener from <a href="http://noismada.com" target="_new">noismada.com</a>.'
 			},
 			{
 			type: 'textinput',
@@ -109,7 +109,12 @@ instance.prototype.CHOICES_KEYS = [
 		{ label: '7', id: '7' },
 		{ label: '8', id: '8' },
 		{ label: '9', id: '9' },
-		{ label: '0', id: '0' }
+		{ label: '0', id: '0' },
+		{ label: 'b', id: 'b' },
+		{ label: 'w', id: 'w' },
+		{ label: 'r', id: 'r' },
+		{ label: 'n', id: 'n' },
+		{ label: 'p', id: 'p' }
 
 ];
 instance.prototype.CHOICES_KEYSModifier = [
@@ -123,17 +128,6 @@ instance.prototype.actions = function (system) {
 		var self = this;
 
 		self.system.emit('instance_actions', self.id, {
-			'custom': {
-				label: 'Custom command',
-				options: [
-					{
-						type: 'textinput',
-						label: 'Custom command',
-						id: 'custom',
-						default: 1
-					}
-				]
-			},
 				'customkey': {
 					label: 'Hot(single)key',
 					options: [
