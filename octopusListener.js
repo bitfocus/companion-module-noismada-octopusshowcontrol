@@ -109,7 +109,12 @@ instance.prototype.CHOICES_KEYS = [
 		{ label: '7', id: '7' },
 		{ label: '8', id: '8' },
 		{ label: '9', id: '9' },
-		{ label: '0', id: '0' }
+		{ label: '0', id: '0' },
+		{ label: 'b', id: 'b' },
+		{ label: 'w', id: 'w' },
+		{ label: 'r', id: 'r' },
+		{ label: 'n', id: 'n' },
+		{ label: 'p', id: 'p' }
 
 ];
 instance.prototype.CHOICES_KEYSModifier = [
@@ -123,23 +128,12 @@ instance.prototype.actions = function (system) {
 		var self = this;
 
 		self.system.emit('instance_actions', self.id, {
-			'custom': {
-				label: 'Custom command',
-				options: [
-					{
-						type: 'textinput',
-						label: 'Custom command',
-						id: 'custom',
-						default: 1
-					}
-				]
-			},
 				'customkey': {
-					label: 'Custom keystroke',
+					label: 'Hot(single)key',
 					options: [
 						{
 							type: 'textinput',
-							label: 'Key to send',
+							label: 'Single key to send',
 							id: 'cust_GKS',
 							default: 'n',
 							regex: '/^.$/'
