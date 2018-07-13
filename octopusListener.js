@@ -58,26 +58,27 @@ instance.prototype.updateConfig = function (config) {
 // Return config fields for web config
 instance.prototype.config_fields = function () {
 		var self = this;
-		return [{
-			type: 'text',
-			id: 'info',
-			width: 12,
-			label: 'Information',
-			value: 'This module is for the Octopus Listener from <a href="http://noismada.com" target="_new">noismada.com</a>.'
+		return [
+			{
+				type: 'text',
+				id: 'info',
+				width: 12,
+				label: 'Information',
+				value: 'This module is for the Octopus Listener from <a href="http://noismada.com" target="_new">noismada.com</a>.'
 			},
 			{
-			type: 'textinput',
-			id: 'host',
-			label: 'Target IP',
-			width: 6,
-			regex: self.REGEX_IP
+				type: 'textinput',
+				id: 'host',
+				label: 'Target IP',
+				width: 6,
+				regex: self.REGEX_IP
 			}
 		]
 };
 
 // When module gets deleted
 instance.prototype.destroy = function () {
-		var self = this;
+	var self = this;
 
 		if (self.tcp !== undefined) {
 			self.tcp.destroy();
@@ -86,42 +87,42 @@ instance.prototype.destroy = function () {
 };
 
 instance.prototype.CHOICES_KEYS = [
-		{ label: 'Enter', id: 'Enter' },
-		{ label: 'Space', id: 'Space' },
-		{ label: 'Arrow up', id: 'Up Arrow' },
-		{ label: 'Arrow Down', id: 'Down Arrow' },
-		{ label: 'Arrow Left', id: 'Left Arrow' },
-		{ label: 'Arrow Right', id: 'Right Arrow' },
-		{ label: 'Delete', id: 'Delete' },
-		{ label: 'Return', id: 'Return' },
-		{ label: 'Esc', id: 'Esc' },
-		{ label: 'Tab', id: 'Tab' },
-		{ label: 'Page Down', id: 'Page Down' },
-		{ label: 'Page Up', id: 'Page Up' },
-		{ label: 'End', id: 'End' },
-		{ label: 'Home', id: 'Home' },
-		{ label: '1', id: '1' },
-		{ label: '2', id: '2' },
-		{ label: '3', id: '3' },
-		{ label: '4', id: '4' },
-		{ label: '5', id: '5' },
-		{ label: '6', id: '6' },
-		{ label: '7', id: '7' },
-		{ label: '8', id: '8' },
-		{ label: '9', id: '9' },
-		{ label: '0', id: '0' },
-		{ label: 'b', id: 'b' },
-		{ label: 'w', id: 'w' },
-		{ label: 'r', id: 'r' },
-		{ label: 'n', id: 'n' },
-		{ label: 'p', id: 'p' }
+	{ label: 'Enter', id: 'Enter' },
+	{ label: 'Space', id: 'Space' },
+	{ label: 'Arrow up', id: 'Up Arrow' },
+	{ label: 'Arrow Down', id: 'Down Arrow' },
+	{ label: 'Arrow Left', id: 'Left Arrow' },
+	{ label: 'Arrow Right', id: 'Right Arrow' },
+	{ label: 'Delete', id: 'Delete' },
+	{ label: 'Return', id: 'Return' },
+	{ label: 'Esc', id: 'Esc' },
+	{ label: 'Tab', id: 'Tab' },
+	{ label: 'Page Down', id: 'Page Down' },
+	{ label: 'Page Up', id: 'Page Up' },
+	{ label: 'End', id: 'End' },
+	{ label: 'Home', id: 'Home' },
+	{ label: '1', id: '1' },
+	{ label: '2', id: '2' },
+	{ label: '3', id: '3' },
+	{ label: '4', id: '4' },
+	{ label: '5', id: '5' },
+	{ label: '6', id: '6' },
+	{ label: '7', id: '7' },
+	{ label: '8', id: '8' },
+	{ label: '9', id: '9' },
+	{ label: '0', id: '0' },
+	{ label: 'b', id: 'b' },
+	{ label: 'w', id: 'w' },
+	{ label: 'r', id: 'r' },
+	{ label: 'n', id: 'n' },
+	{ label: 'p', id: 'p' }
 
 ];
 instance.prototype.CHOICES_KEYSModifier = [
-		{ label: 'None', id: 'Enter' },
-		{ label: 'Option/Alt', id: 'Option/Alt' },
-		{ label: 'Control', id: 'Control' },
-		{ label: 'Shift', id: 'Shift' }
+	{ label: 'None', id: 'Enter' },
+	{ label: 'Option/Alt', id: 'Option/Alt' },
+	{ label: 'Control', id: 'Control' },
+	{ label: 'Shift', id: 'Shift' }
 ];
 
 instance.prototype.actions = function (system) {

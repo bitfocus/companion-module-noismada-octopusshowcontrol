@@ -6,8 +6,8 @@ Can be used to send keystrokes. Be carefull, needs to have the application you w
 
 **Available commands for Octopus Listener**
 
-* Custom command
-* Custom keystroke
+* Hot(single)key
+* General Keystroke
 * PPT Next slide
 * PPT Previous slide
 * PPT Start presentation
