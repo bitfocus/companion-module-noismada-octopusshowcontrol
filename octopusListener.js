@@ -101,6 +101,9 @@ instance.prototype.CHOICES_KEYS = [
 	{ label: 'Page Up', id: 'Page Up' },
 	{ label: 'End', id: 'End' },
 	{ label: 'Home', id: 'Home' },
+	{ label: 'Help', id: 'Help' },
+	{ label: 'Caps Lock', id: 'Caps Lock' },
+	{ label: 'Clear', id: 'Clear' },
 	{ label: '1', id: '1' },
 	{ label: '2', id: '2' },
 	{ label: '3', id: '3' },
@@ -115,11 +118,25 @@ instance.prototype.CHOICES_KEYS = [
 	{ label: 'w', id: 'w' },
 	{ label: 'r', id: 'r' },
 	{ label: 'n', id: 'n' },
-	{ label: 'p', id: 'p' }
-
+	{ label: 'p', id: 'p' },
+	{ label: 'F1', id: 'F1' },
+	{ label: 'F2', id: 'F2' },
+	{ label: 'F3', id: 'F3' },
+	{ label: 'F4', id: 'F4' },
+	{ label: 'F5', id: 'F5' },
+	{ label: 'F6', id: 'F6' },
+	{ label: 'F7', id: 'F7' },
+	{ label: 'F8', id: 'F8' },
+	{ label: 'F9', id: 'F9' },
+	{ label: 'F10', id: 'F10' },
+	{ label: 'F11', id: 'F11' },
+	{ label: 'F12', id: 'F12' },
+	{ label: 'F13', id: 'F13' },
+	{ label: 'F14', id: 'F14' },
+	{ label: 'F15', id: 'F15' }
 ];
 instance.prototype.CHOICES_KEYSModifier = [
-	{ label: 'None', id: 'Enter' },
+	{ label: 'None', id: 'None' },
 	{ label: 'Option/Alt', id: 'Option/Alt' },
 	{ label: 'Control', id: 'Control' },
 	{ label: 'Shift', id: 'Shift' }
@@ -174,11 +191,12 @@ instance.prototype.actions = function (system) {
 					]
 				},
 
-				'pNext':      { label: 'PPT Next slide' },
-				'pPrevious':  { label: 'PPT Previous slide' },
-				'pPlay':      { label: 'PPT Start presentation' },
-				'pFirst':     { label: 'PPT First slide' },
-				'pExit':      { label: 'PPT Exit presentation' },
+				'pNext':			{ label: 'PPT Next slide' },
+				'pPrevious':		{ label: 'PPT Previous slide' },
+				'pPlay':			{ label: 'PPT Start presentation' },
+				'pFirst':			{ label: 'PPT First slide' },
+				'pOpen':			{ label: 'PPT Open' },
+				'pExit':			{ label: 'PPT Exit presentation' },
 
 				'kSlide': {
 					label: 'Keynote goto slide (nr)',
@@ -193,11 +211,12 @@ instance.prototype.actions = function (system) {
 					]
 				},
 
-				'kNext':       { label: 'Keynote Next slide' },
-				'kPrevious':   { label: 'Keynote Previous slide' },
-				'kPlay':       { label: 'Keynote Start presentation' },
-				'kFirst':      { label: 'Keynote First slide' },
-				'kExit':       { label: 'Keynote Exit presentation' }
+				'kNext':		{ label: 'Keynote Next slide' },
+				'kPrevious':	{ label: 'Keynote Previous slide' },
+				'kPlay':		{ label: 'Keynote Start presentation' },
+				'kFirst':		{ label: 'Keynote First slide' },
+				'kOpen':		{ label: 'Keynote Open' },
+				'kExit':		{ label: 'Keynote Exit presentation' }
 		});
 };
 
@@ -215,7 +234,7 @@ instance.prototype.action = function (action) {
 			break;
 
 			case 'customkey':
-				cmd = 'GKS<TYPE>'+ 'none*' + opt.cust_GKS + '<ENDOFTRANS>';
+				cmd = 'GKS<TYPE>'+ 'None*' + opt.cust_GKS + '<ENDOFTRANS>';
 			break;
 
 			case 'GKS':
@@ -242,6 +261,10 @@ instance.prototype.action = function (action) {
 				cmd = 'P<TYPE>G*1<ENDOFTRANS>';
 			break;
 
+			case 'pOpen':
+				cmd = 'P<TYPE>O<ENDOFTRANS>';
+			break;
+
 			case 'pExit':
 				cmd = 'P<TYPE>S<ENDOFTRANS>';
 			break;
@@ -264,6 +287,10 @@ instance.prototype.action = function (action) {
 
 			case 'kFirst':
 				cmd = 'K<TYPE>G*1<ENDOFTRANS>';
+			break;
+
+			case 'kOpen':
+				cmd = 'K<TYPE>O<ENDOFTRANS>';
 			break;
 
 			case 'kExit':
