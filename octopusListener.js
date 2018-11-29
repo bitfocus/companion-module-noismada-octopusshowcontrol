@@ -143,81 +143,77 @@ instance.prototype.CHOICES_KEYSModifier = [
 ];
 
 instance.prototype.actions = function (system) {
-		var self = this;
+	var self = this;
 
-		self.system.emit('instance_actions', self.id, {
-				'customkey': {
-					label: 'Hot(single)key',
-					options: [
-						{
-							type: 'textinput',
-							label: 'Single key to send',
-							id: 'cust_GKS',
-							default: 'n',
-							regex: '/^.$/'
-						}
-					]
-				},
-				'GKS': {
-					label: 'General Keystroke',
-					options: [
-						{
-							type: 'dropdown',
-							label: 'Modifier',
-							id: 'GKS_Mod',
-							default: 'None',
-							choices: self.CHOICES_KEYSModifier
-						},
-						{
-							type: 'dropdown',
-							label: 'Key',
-							id: 'GKS',
-							default: 'Space',
-							choices: self.CHOICES_KEYS
-						}
-					]
-				},
+	self.system.emit('instance_actions', self.id, {
+		'customkey': {
+			label: 'Hot(single)key',
+			options: [ {
+				type: 'textinput',
+				label: 'Single key to send',
+				id: 'cust_GKS',
+				default: 'n',
+				regex: '/^.$/'
+				}
+			]
+		},
+		'GKS': {
+			label: 'General Keystroke',
+			options: [ {
+				type: 'dropdown',
+				label: 'Modifier',
+				id: 'GKS_Mod',
+				default: 'None',
+				choices: self.CHOICES_KEYSModifier
+			},
+			{
+				type: 'dropdown',
+				label: 'Key',
+				id: 'GKS',
+				default: 'Space',
+				choices: self.CHOICES_KEYS
+			}
+			]
+		},
 
-				'pSlide': {
-					label: 'PPT goto slide (nr)',
-					options: [
-						{
-							type: 'textinput',
-							label: 'Slide Nr.',
-							id: 'pSlide',
-							default: 1,
-							regex: self.REGEX_NUMBER
-						}
-					]
-				},
+		'pSlide': {
+			label: 'PPT goto slide (nr)',
+			options: [ {
+				type: 'textinput',
+				label: 'Slide Nr.',
+				id: 'pSlide',
+				default: 1,
+				regex: self.REGEX_NUMBER
+			}
+			]
+		},
 
-				'pNext':			{ label: 'PPT Next slide' },
-				'pPrevious':		{ label: 'PPT Previous slide' },
-				'pPlay':			{ label: 'PPT Start presentation' },
-				'pFirst':			{ label: 'PPT First slide' },
-				'pOpen':			{ label: 'PPT Open' },
-				'pExit':			{ label: 'PPT Exit presentation' },
+		'pNext':			{ label: 'PPT Next slide' },
+		'pPrevious':	{ label: 'PPT Previous slide' },
+		'pPlay':			{ label: 'PPT Start presentation' },
+		'pFirst':			{ label: 'PPT First slide' },
+		'pOpen':			{ label: 'PPT Open' },
+		'pExit':			{ label: 'PPT Exit presentation' },
 
-				'kSlide': {
-					label: 'Keynote goto slide (nr)',
-					options: [
-						{
-							type: 'textinput',
-							label: 'Slide Nr.',
-							id: 'kSlide',
-							default: 1,
-							regex: self.REGEX_NUMBER
-						}
-					]
-				},
+		'kSlide': {
+			label: 'Keynote goto slide (nr)',
+			options: [ {
+				type: 'textinput',
+				label: 'Slide Nr.',
+				id: 'kSlide',
+				default: 1,
+				regex: self.REGEX_NUMBER
+			}
+			]
+		},
 
-				'kNext':		{ label: 'Keynote Next slide' },
-				'kPrevious':	{ label: 'Keynote Previous slide' },
-				'kPlay':		{ label: 'Keynote Start presentation' },
-				'kFirst':		{ label: 'Keynote First slide' },
-				'kOpen':		{ label: 'Keynote Open' },
-				'kExit':		{ label: 'Keynote Exit presentation' }
-		});
+		'kNext':			{ label: 'Keynote Next slide' },
+		'kPrevious':	{ label: 'Keynote Previous slide' },
+		'kPlay':			{ label: 'Keynote Start presentation' },
+		'kFirst':			{ label: 'Keynote First slide' },
+		'kOpen':			{ label: 'Keynote Open' },
+		'kExit':			{ label: 'Keynote Exit presentation' }
+	});
 };
 
 
