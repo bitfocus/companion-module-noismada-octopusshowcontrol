@@ -148,7 +148,8 @@ instance.prototype.actions = function (system) {
 	self.system.emit('instance_actions', self.id, {
 		'customkey': {
 			label: 'Hot(single)key',
-			options: [ {
+			options: [
+			{
 				type: 'textinput',
 				label: 'Single key to send',
 				id: 'cust_GKS',
@@ -159,7 +160,8 @@ instance.prototype.actions = function (system) {
 		},
 		'GKS': {
 			label: 'General Keystroke',
-			options: [ {
+			options: [
+			{
 				type: 'dropdown',
 				label: 'Modifier',
 				id: 'GKS_Mod',
@@ -178,7 +180,8 @@ instance.prototype.actions = function (system) {
 
 		'pSlide': {
 			label: 'PPT goto slide (nr)',
-			options: [ {
+			options: [
+			{
 				type: 'textinput',
 				label: 'Slide Nr.',
 				id: 'pSlide',
@@ -197,7 +200,8 @@ instance.prototype.actions = function (system) {
 
 		'kSlide': {
 			label: 'Keynote goto slide (nr)',
-			options: [ {
+			options: [
+			{
 				type: 'textinput',
 				label: 'Slide Nr.',
 				id: 'kSlide',
@@ -218,89 +222,89 @@ instance.prototype.actions = function (system) {
 
 
 instance.prototype.action = function (action) {
-		var self = this;
-		var id = action.action;
-		var cmd;
-		var opt = action.options;
+	var self = this;
+	var id = action.action;
+	var cmd;
+	var opt = action.options;
 
-		switch (action.action) {
+	switch (action.action) {
 
-			case 'custom':
-				cmd = opt.custom ;
-			break;
+		case 'custom':
+			cmd = opt.custom ;
+		break;
 
-			case 'customkey':
-				cmd = 'GKS<TYPE>'+ 'None*' + opt.cust_GKS + '<ENDOFTRANS>';
-			break;
+		case 'customkey':
+			cmd = 'GKS<TYPE>'+ 'None*' + opt.cust_GKS + '<ENDOFTRANS>';
+		break;
 
-			case 'GKS':
-				cmd = 'GKS<TYPE>'+ opt.GKS_Mod +'*' + opt.GKS + '<ENDOFTRANS>';
-			break;
+		case 'GKS':
+			cmd = 'GKS<TYPE>'+ opt.GKS_Mod +'*' + opt.GKS + '<ENDOFTRANS>';
+		break;
 
-			case 'pSlide':
-				cmd = 'P<TYPE>G*' + opt.pSlide + '<ENDOFTRANS>';
-			break;
+		case 'pSlide':
+			cmd = 'P<TYPE>G*' + opt.pSlide + '<ENDOFTRANS>';
+		break;
 
-			case 'pNext':
-				cmd = 'P<TYPE>N<ENDOFTRANS>';
-			break;
+		case 'pNext':
+			cmd = 'P<TYPE>N<ENDOFTRANS>';
+		break;
 
-			case 'pPrevious':
-				cmd = 'P<TYPE>B<ENDOFTRANS>';
-			break;
+		case 'pPrevious':
+			cmd = 'P<TYPE>B<ENDOFTRANS>';
+		break;
 
-			case 'pPlay':
-				cmd = 'P<TYPE>P<ENDOFTRANS>';
-			break;
+		case 'pPlay':
+			cmd = 'P<TYPE>P<ENDOFTRANS>';
+		break;
 
-			case 'pFirst':
-				cmd = 'P<TYPE>G*1<ENDOFTRANS>';
-			break;
+		case 'pFirst':
+			cmd = 'P<TYPE>G*1<ENDOFTRANS>';
+		break;
 
-			case 'pOpen':
-				cmd = 'P<TYPE>O<ENDOFTRANS>';
-			break;
+		case 'pOpen':
+			cmd = 'P<TYPE>O<ENDOFTRANS>';
+		break;
 
-			case 'pExit':
-				cmd = 'P<TYPE>S<ENDOFTRANS>';
-			break;
+		case 'pExit':
+			cmd = 'P<TYPE>S<ENDOFTRANS>';
+		break;
 
-			case 'kSlide':
-				cmd = 'K<TYPE>G*' + opt.kSlide + '<ENDOFTRANS>';
-			break;
+		case 'kSlide':
+			cmd = 'K<TYPE>G*' + opt.kSlide + '<ENDOFTRANS>';
+		break;
 
-			case 'kNext':
-				cmd = 'K<TYPE>N<ENDOFTRANS>';
-			break;
+		case 'kNext':
+			cmd = 'K<TYPE>N<ENDOFTRANS>';
+		break;
 
-			case 'kPrevious':
-				cmd = 'K<TYPE>B<ENDOFTRANS>';
-			break;
+		case 'kPrevious':
+			cmd = 'K<TYPE>B<ENDOFTRANS>';
+		break;
 
-			case 'kPlay':
-				cmd = 'K<TYPE>P<ENDOFTRANS>';
-			break;
+		case 'kPlay':
+			cmd = 'K<TYPE>P<ENDOFTRANS>';
+		break;
 
-			case 'kFirst':
-				cmd = 'K<TYPE>G*1<ENDOFTRANS>';
-			break;
+		case 'kFirst':
+			cmd = 'K<TYPE>G*1<ENDOFTRANS>';
+		break;
 
-			case 'kOpen':
-				cmd = 'K<TYPE>O<ENDOFTRANS>';
-			break;
+		case 'kOpen':
+			cmd = 'K<TYPE>O<ENDOFTRANS>';
+		break;
 
-			case 'kExit':
-				cmd = 'K<TYPE>S<ENDOFTRANS>';
-			break;
+		case 'kExit':
+			cmd = 'K<TYPE>S<ENDOFTRANS>';
+		break;
 
+	}
+
+	if (cmd !== undefined) {
+		if (self.tcp !== undefined) {
+			debug('sending ', cmd, "to", self.tcp.host);
+			self.tcp.send(cmd);
 		}
-
-		if (cmd !== undefined) {
-			if (self.tcp !== undefined) {
-				debug('sending ', cmd, "to", self.tcp.host);
-				self.tcp.send(cmd);
-			}
-		}
+	}
 };
 
 instance_skel.extendedBy(instance);
