@@ -149,45 +149,45 @@ instance.prototype.actions = function (system) {
 		'customkey': {
 			label: 'Hot(single)key',
 			options: [
-			{
-				type: 'textinput',
-				label: 'Single key to send',
-				id: 'cust_GKS',
-				default: 'n',
-				regex: '/^.$/'
+				{
+					type: 'textinput',
+					label: 'Single key to send',
+					id: 'cust_GKS',
+					default: 'n',
+					regex: '/^.$/'
 				}
 			]
 		},
 		'GKS': {
 			label: 'General Keystroke',
 			options: [
-			{
-				type: 'dropdown',
-				label: 'Modifier',
-				id: 'GKS_Mod',
-				default: 'None',
-				choices: self.CHOICES_KEYSModifier
-			},
-			{
-				type: 'dropdown',
-				label: 'Key',
-				id: 'GKS',
-				default: 'Space',
-				choices: self.CHOICES_KEYS
-			}
+				{
+					type: 'dropdown',
+					label: 'Modifier',
+					id: 'GKS_Mod',
+					default: 'None',
+					choices: self.CHOICES_KEYSModifier
+				},
+				{
+					type: 'dropdown',
+					label: 'Key',
+					id: 'GKS',
+					default: 'Space',
+					choices: self.CHOICES_KEYS
+				}
 			]
 		},
 
 		'pSlide': {
 			label: 'PPT goto slide (nr)',
 			options: [
-			{
-				type: 'textinput',
-				label: 'Slide Nr.',
-				id: 'pSlide',
-				default: 1,
-				regex: self.REGEX_NUMBER
-			}
+				{
+					type: 'textinput',
+					label: 'Slide Nr.',
+					id: 'pSlide',
+					default: 1,
+					regex: self.REGEX_NUMBER
+				}
 			]
 		},
 
@@ -201,13 +201,13 @@ instance.prototype.actions = function (system) {
 		'kSlide': {
 			label: 'Keynote goto slide (nr)',
 			options: [
-			{
-				type: 'textinput',
-				label: 'Slide Nr.',
-				id: 'kSlide',
-				default: 1,
-				regex: self.REGEX_NUMBER
-			}
+				{
+					type: 'textinput',
+					label: 'Slide Nr.',
+					id: 'kSlide',
+					default: 1,
+					regex: self.REGEX_NUMBER
+				}
 			]
 		},
 
