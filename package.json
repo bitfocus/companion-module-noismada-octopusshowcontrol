@@ -4,8 +4,7 @@
 	"api_version": "1.0.0",
 	"keywords": [
 		"Software",
-		"hotkey"
-	],
+		 "Keyboard emulator"],
 	"manufacturer": "Octopus",
 	"product": "Listener",
 	"shortname": "octolistener",

@@ -145,7 +145,7 @@ instance.prototype.CHOICES_KEYSModifier = [
 instance.prototype.actions = function (system) {
 	var self = this;
 
-	self.system.emit('instance_actions', self.id, {
+	var actions = {
 		'customkey': {
 			label: 'Hot(single)key',
 			options: [
@@ -217,7 +217,8 @@ instance.prototype.actions = function (system) {
 		'kFirst':			{ label: 'Keynote First slide' },
 		'kOpen':			{ label: 'Keynote Open' },
 		'kExit':			{ label: 'Keynote Exit presentation' }
-	});
+	};
+	self.setActions(actions);
 };
 
 
