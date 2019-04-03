@@ -198,23 +198,9 @@ instance.prototype.actions = function (system) {
 		'pOpen':			{ label: 'PPT Open' },
 		'pExit':			{ label: 'PPT Exit presentation' },
 
-		'kSlide': {
-			label: 'Keynote goto slide (nr)',
-			options: [
-				{
-					type: 'textinput',
-					label: 'Slide Nr.',
-					id: 'kSlide',
-					default: 1,
-					regex: self.REGEX_NUMBER
-				}
-			]
-		},
-
 		'kNext':			{ label: 'Keynote Next slide' },
 		'kPrevious':	{ label: 'Keynote Previous slide' },
 		'kPlay':			{ label: 'Keynote Start presentation' },
-		'kFirst':			{ label: 'Keynote First slide' },
 		'kOpen':			{ label: 'Keynote Open' },
 		'kExit':			{ label: 'Keynote Exit presentation' }
 	};
@@ -270,10 +256,6 @@ instance.prototype.action = function (action) {
 			cmd = 'P<TYPE>S<ENDOFTRANS>';
 		break;
 
-		case 'kSlide':
-			cmd = 'K<TYPE>G*' + opt.kSlide + '<ENDOFTRANS>';
-		break;
-
 		case 'kNext':
 			cmd = 'K<TYPE>N<ENDOFTRANS>';
 		break;
@@ -284,10 +266,6 @@ instance.prototype.action = function (action) {
 
 		case 'kPlay':
 			cmd = 'K<TYPE>P<ENDOFTRANS>';
-		break;
-
-		case 'kFirst':
-			cmd = 'K<TYPE>G*1<ENDOFTRANS>';
 		break;
 
 		case 'kOpen':
