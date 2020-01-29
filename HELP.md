@@ -1,13 +1,13 @@
 ## Octopus Listener
 
-This module is for the Octopus Listener from [noismada.com.](http://noismada.com)
+This module is for the Octopus Listener from [noismada.com.](http://noismada.com) and the paid version [octopusshowcontrol.com](http://octopusshowcontrol.com)
 
 Can be used to send keystrokes. Be carefull, needs to have the application you want to controll active.
 
 **Available commands for Octopus Listener**
 
 * Hot(single)key
-* General Keystroke
+* General Keystroke (only free version)
 * PPT Next slide
 * PPT Previous slide
 * PPT Start presentation
@@ -18,7 +18,7 @@ Can be used to send keystrokes. Be carefull, needs to have the application you w
 * Keynote Start presentation
 * Keynote Exit presentation
 
-> Removed because of not working correctly from version 1.1.0:
+> Only in the new (paid version):
 
 * Keynote goto slide (number)
 * Keynote First slide
