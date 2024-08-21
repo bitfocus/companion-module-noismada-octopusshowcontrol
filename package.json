@@ -1,30 +1,19 @@
 {
 	"name": "noismada-octopusshowcontrol",
-	"legacy": [
-		"octopus"
-	],
-	"version": "1.2.1",
-	"api_version": "1.0.0",
-	"keywords": [
-		"Software",
-		"Keyboard emulator"
-	],
-	"manufacturer": "Octopus",
-	"product": "Listener",
-	"shortname": "octopuslistener",
-	"description": "Octopus Listener plugin for Companion",
-	"main": "octopusListener.js",
+	"version": "2.0.0",
+	"main": "index.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
-	"author": "Jeffrey Davidsz <jeffrey.davidsz@vicreo.eu>",
 	"license": "MIT",
-	"homepage": "https://github.com/bitfocus/companion-module-noismada-octopusshowcontrol#readme",
-	"bugs": {
-		"url": "https://github.com/bitfocus/companion-module-noismada-octopusshowcontrol/issues"
-	},
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/bitfocus/companion-module-noismada-octopusshowcontrol.git"
+	},
+	"dependencies": {
+		"@companion-module/base": "~1.9.0"
+	},
+	"devDependencies": {
+		"@companion-module/tools": "^1.5.1"
 	}
 }

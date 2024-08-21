@@ -20,5 +20,5 @@ Can be used to send keystrokes. Be carefull, needs to have the application you w
 
 > Only in the new (paid version):
 
-* Keynote goto slide (number)
+* Keynote goto slide (number) (Supports variables)
 * Keynote First slide
