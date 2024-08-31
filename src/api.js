@@ -1,7 +1,5 @@
 const { InstanceStatus, TCPHelper } = require('@companion-module/base')
 
-const io = require('socket.io-client');
-
 module.exports = {
 	initConnection: function() {
 		let self = this;
